@@ -1,3 +1,4 @@
+#init
 class Key:
     def __init__(self):
         self.char = ['a','b','c','d','e','f','g',

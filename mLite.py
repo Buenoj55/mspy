@@ -1,4 +1,3 @@
-#init
 from flask import Flask,request, render_template
 from key import Key
 
@@ -8,18 +7,19 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/contact/')
+@app.route('/', methods=['POST'])
+def createRoom():
+    roomKey = request.form['initial']+generateRootKey()
+    return render_template('index.html',key=roomKey)
 
-def contact():
-    return "hello"
+def generateRootKey():
+    key = Key()
+    chatPin = key.getKey()
+    return chatPin
 
-key = Key()
-chatPin = key.getKey()
-root = '/'+chatPin+'/'
-print(chatPin)
-@app.route(root)
-def echo():
-    return render_template('index.html', pin=chatPin)
+@app.route('/<key>/')
+def chat(key):
+    return render_template('room.html', key=key)
 
 if __name__ == '__main__':
     app.run(debug=True)

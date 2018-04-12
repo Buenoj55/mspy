@@ -1,8 +1,14 @@
-<h1>Welcome from flask</h1>
-<form method="POST" action="/">
-    <input type="text" name="initial"/>
+{% extends "template.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block body %}
+	<h1>Welcome from flask</h1>
 	<input type="submit" value="Generer chat" onclick="window.location.href='{{ url_for('chat',key=key) }}';">
-</form>
+{% endblock %}
+
+
+
 
 
 

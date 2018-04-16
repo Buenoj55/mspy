@@ -38,7 +38,7 @@ class Key:
         string = self.generateCharSequence()+ sand
         
         key = hashlib.md5(string.encode("utf-8")).hexdigest().upper()
-        return key[5:11]
+        return key[5:9]
 
     def getKey(self):
         return self.key

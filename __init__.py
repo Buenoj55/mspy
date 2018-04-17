@@ -1,5 +1,4 @@
-from flask import Flask,request, render_template, session, url_for,redirect
-from flask import flash
+from flask import Flask,request, render_template, session, url_for,redirect,flash
 from key import Key
 import os
 
@@ -43,5 +42,6 @@ def test():
 
 
 if __name__ == '__main__':
+    SESSION_PERMANENT=False
     app.secret_key = 'A7§/23/3KF093250'
     app.run(debug=True)
